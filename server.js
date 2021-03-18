@@ -67,7 +67,7 @@ app.get("/place/:id", (req, res) => {
   return res.status(200).send(place);
 });
 app.get("/search/", (req, res) => {
-  const place;
+  const place = null;
   if (req.query.name === "all" || req.query.city === "all")
     return res.status(200).send(JSON.stringify(places));
   if (req.query.name !== null || req.query.city === null)
