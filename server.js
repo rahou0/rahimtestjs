@@ -58,6 +58,6 @@ app.get("/tranding", (req, res) => {
       address: "Batna, Algeria",
     },
   ];
-  return res.status(200).send(results);
+  return res.status(200).send(JSON.stringify(results));
 });
 app.listen(port, () => console.log("server is runing...."));
