@@ -64,7 +64,7 @@ app.get("/tranding", (req, res) => {
 app.get("/place/:id", (req, res) => {
   console.log(`params : ${req.params.id}`)
   places.map((place) => {
-    console.log(`place id : ${place.id}`)
+    if (place.id === req.params.id) console.log(`place id : ${place.id}`)
     if (place.id === req.params.id) return res.status(200).send(place);
   });
   return res.status(400).send("dont exist");
