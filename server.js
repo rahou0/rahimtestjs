@@ -72,9 +72,9 @@ app.get("/search/", (req, res) => {
   const place = null;
   if (req.query.name === "all" || req.query.city === "all")
     return res.status(200).send(JSON.stringify(places));
-  if (req.query.name !== null && req.query.city === null)
+  if (req.query.name !== null)
     place = places.find(({ title }) => title === req.query.name);
-  if (req.query.city !== null && req.query.name === null)
+  if (req.query.city !== null)
     place = places.find(({ address }) => address === req.query.city);
   console.log(place);
   if (place === null) return res.status(400).send("dont exist");
