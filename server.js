@@ -16,6 +16,39 @@ port = process.env.PORT || 5000;
 // app.use("/", authRoutes);
 // app.use("/", postRoute);
 
+const places = [
+  {
+    id: 1,
+    title: "Djemila",
+    address: "Setif, Algeria",
+  },
+  {
+    id: 2,
+    title: "Prince Abdel Kader Mosque",
+    address: "Constantine, Algeria",
+  },
+  {
+    id: 3,
+    title: "Fort Santa Cruz",
+    address: "Oran, Algeria",
+  },
+  {
+    id: 4,
+    title: "Kasbah of Algiers",
+    address: "Algiers, Algeria",
+  },
+  {
+    id: 5,
+    title: "Memorial du Martyr",
+    address: "Algiers, Algeria",
+  },
+  {
+    id: 6,
+    title: "Timgad",
+    address: "Batna, Algeria",
+  },
+];
+
 app.get("/login", (req, res) => {
   return res.status(200).send({ titile: "login page" });
 });
@@ -26,38 +59,12 @@ app.get("/", (req, res) => {
   return res.status(200).send({ titile: "home page" });
 });
 app.get("/tranding", (req, res) => {
-  const results = [
-    {
-      id: 1,
-      title: "Djemila",
-      address: "Setif, Algeria",
-    },
-    {
-      id: 2,
-      title: "Prince Abdel Kader Mosque",
-      address: "Constantine, Algeria",
-    },
-    {
-      id: 3,
-      title: "Fort Santa Cruz",
-      address: "Oran, Algeria",
-    },
-    {
-      id: 4,
-      title: "Kasbah of Algiers",
-      address: "Algiers, Algeria",
-    },
-    {
-      id: 5,
-      title: "Memorial du Martyr",
-      address: "Algiers, Algeria",
-    },
-    {
-      id: 6,
-      title: "Timgad",
-      address: "Batna, Algeria",
-    },
-  ];
-  return res.status(200).send(JSON.stringify(results));
+  return res.status(200).send(JSON.stringify(places));
+});
+app.get("/place/:id", (req, res) => {
+  places.map((place) => {
+    if (place.id === req.params.id) return res.status(200).send(place);
+  });
+  return res.status(400).send("dont exist");
 });
 app.listen(port, () => console.log("server is runing...."));
