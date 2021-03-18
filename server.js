@@ -67,12 +67,13 @@ app.get("/place/:id", (req, res) => {
   return res.status(200).send(place);
 });
 app.get("/search/", (req, res) => {
+  const place;
   if (req.query.name === "all" || req.query.city === "all")
     return res.status(200).send(JSON.stringify(places));
-  if(req.query.name!==null || req.query.city===null )
-  const place = places.find(({ name }) => name === req.query.name);
-  if(req.query.city!==null || req.query.name===null)
-  const place = places.find(({ address }) => address === req.query.city);
+  if (req.query.name !== null || req.query.city === null)
+    place = places.find(({ name }) => name === req.query.name);
+  if (req.query.city !== null || req.query.name === null)
+    place = places.find(({ address }) => address === req.query.city);
   if (place === null) return res.status(400).send("dont exist");
   return res.status(200).send(place);
 });
