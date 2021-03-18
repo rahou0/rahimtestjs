@@ -63,13 +63,11 @@ app.get("/tranding", (req, res) => {
 });
 app.get("/place/:id", (req, res) => {
   console.log(`params : ${req.params.id}`);
-  places.map((place) => {
+  const place=places.map((place) => {
     if (place.id.toString() === req.params.id)
-      console.log(`place id : ${place.id}`);
-    if (place.id.toString() === req.params.id)
-      return res.status(200).send(place);
+      return place;
   });
-  console.log("end");
-  return res.status(400).send("dont exist");
+  if(place===null) return res.status(400).send("dont exist");
+  return res.status(200).send(place);
 });
 app.listen(port, () => console.log("server is runing...."));
