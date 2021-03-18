@@ -62,10 +62,12 @@ app.get("/tranding", (req, res) => {
   return res.status(200).send(JSON.stringify(places));
 });
 app.get("/place/:id", (req, res) => {
-  console.log(`params : ${req.params.id}`)
+  console.log(`params : ${req.params.id}`);
   places.map((place) => {
-    if (place.id === req.params.id) console.log(`place id : ${place.id}`)
-    if (place.id === req.params.id) return res.status(200).send(place);
+    if (place.id.toString() === req.params.id)
+      console.log(`place id : ${place.id}`);
+    if (place.id.toString() === req.params.id)
+      return res.status(200).send(place);
   });
   return res.status(400).send("dont exist");
 });
