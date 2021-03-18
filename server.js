@@ -76,6 +76,7 @@ app.get("/search/", (req, res) => {
     place = places.find(({ title }) => title === req.query.name);
   if (req.query.city !== null && req.query.name === null)
     place = places.find(({ address }) => address === req.query.city);
+  console.log(place);
   if (place === null) return res.status(400).send("dont exist");
   return res.status(200).send(place);
 });
