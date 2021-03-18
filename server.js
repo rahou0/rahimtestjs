@@ -69,6 +69,7 @@ app.get("/place/:id", (req, res) => {
     if (place.id.toString() === req.params.id)
       return res.status(200).send(place);
   });
+  console.log("end");
   return res.status(400).send("dont exist");
 });
 app.listen(port, () => console.log("server is runing...."));
