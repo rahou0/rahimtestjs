@@ -14,7 +14,7 @@ const registerValidation = (data) => {
     city: Joi.string().max(256),
     state: Joi.string().max(256),
     phoneNumber: Joi.string().max(10).min(10).required(),
-    state: Joi.string().max(256).min(3).required(),
+    job: Joi.string().max(256).min(3).required(),
     birthday: Joi.date().required(),
     bio: Joi.string().max(256),
   });
