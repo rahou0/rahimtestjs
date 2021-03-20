@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-var mysql = require("mysql");
+var mysql = require("mysql2");
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -16,10 +16,10 @@ var connection = mysql.createConnection({
   database: "doordz",
 });
 
-connection.connect(function (err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
+// connection.connect(function (err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+// });
 const routes = require("./routes/index");
 
 app.use("/", routes);
