@@ -1,5 +1,4 @@
 const { connection } = require("../config/database");
-const { use } = require("../routes");
 
 module.exports.findUser = async (email) => {
   connection.query(
