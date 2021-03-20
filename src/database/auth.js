@@ -12,7 +12,7 @@ module.exports.findUser = async (email) => {
 };
 
 module.exports.addUser = (user) => {
-  connection.query(
+  connection.execute(
     "INSERT INTO `Users` (fullname,email,password,gender,image,city,state,phoneNumber,job,birthday,bio) VALUES (?,?,?,?,?,?,?,?,?,?,?",
     [
       user.fullname,
