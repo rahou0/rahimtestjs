@@ -18,7 +18,7 @@ module.exports.registre = async (req, res) => {
   const salt = await bcrypt.genSalt(10);
   const hashedpassword = await bcrypt.hash(req.body.password, salt);
   //create user
-  user = { ...user, password: hashedpassword };
+  //user = { ...user, password: hashedpassword };
   try {
     const savedUser = await addUser(user);
     res.status(201).send("you are successfully registered");
