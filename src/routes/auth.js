@@ -1,10 +1,7 @@
 const router = require("express").Router();
 
-router.post("/login", (req, res) => {
-  return res.status(200).send({ titile: "login page" });
-});
+const authController = require("../controllers/authController");
 
-router.post("/registre", (req, res) => {
-  return res.status(200).send({ titile: "login page" });
-});
+router.post("/login", authController.login);
+router.post("/registre", authController.registre);
 module.exports = router;
