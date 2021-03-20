@@ -14,7 +14,7 @@ const registerValidation = (data) => {
     city: Joi.string().max(256),
     state: Joi.string().max(256),
     phoneNumber: Joi.string().max(10).min(10).required(),
-    birthdate: Joi.Date().required(),
+    birthdate: Joi.date().format("YYYY-MM-DD").required(),
     bio: Joi.string().max(256),
   });
   return schema.validate(data);
