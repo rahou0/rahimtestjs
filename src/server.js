@@ -8,6 +8,8 @@ app.use(cors());
 dotenv.config();
 port = process.env.PORT || 5000;
 
+//DB
+require("./database/connection");
 const routes = require("./routes/index");
 
 app.use("/", routes);

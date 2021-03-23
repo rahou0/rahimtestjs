@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "rahim",
+    "password": "Rahim2016-",
+    "database": "dbpc",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "rahim",
+    "password": "Rahim2016-",
+    "database": "doordz",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
