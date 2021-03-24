@@ -5,7 +5,7 @@ const registerValidation = (data) => {
     fullname: Joi.string().max(128).min(6).required(),
     email: Joi.string().max(64).min(5).required().email(),
     password: Joi.string()
-      .max(32)
+      .max(64)
       .min(8)
       .required()
       .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
@@ -25,7 +25,7 @@ const loginValidation = (data) => {
   const schema = Joi.object({
     email: Joi.string().max(64).min(5).required().email(),
     password: Joi.string()
-      .max(32)
+      .max(64)
       .min(8)
       .required()
       .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),

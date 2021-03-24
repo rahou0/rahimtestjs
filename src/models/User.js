@@ -17,7 +17,7 @@ module.exports = sequelize.define("User", {
     unique: true,
   },
   password: {
-    type: DataTypes.STRING(32),
+    type: DataTypes.STRING(64),
     allowNull: false,
   },
   gender: {

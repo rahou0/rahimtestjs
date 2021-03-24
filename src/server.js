@@ -1,13 +1,13 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
 //config
-dotenv.config();
-port = process.env.PORT || 5000;
 
+port = process.env.PORT || 3000;
 //DB
 require("./database/connection");
 const routes = require("./routes/index");
