@@ -32,5 +32,24 @@ const loginValidation = (data) => {
   });
   return schema.validate(data);
 };
+const resendEmailValidation = (email) => {
+  const schema = Joi.object({
+    email: Joi.string().max(64).min(5).required().email(),
+  });
+  return schema.validate(email);
+};
+const resetPasswordValidation = (data) => {
+  const schema = Joi.object({
+    password: Joi.string()
+      .max(64)
+      .min(8)
+      .required()
+      .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
+    repeat_password: Joi.ref("password"),
+  }).with("password", "repeat_password");
+  return schema.validate(data);
+};
 module.exports.registerValidation = registerValidation;
 module.exports.loginValidation = loginValidation;
+module.exports.resendEmailValidation = resendEmailValidation;
+module.exports.resetPasswordValidation = resetPasswordValidation;
